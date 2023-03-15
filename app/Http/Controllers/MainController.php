@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// importo Model
+use App\Models\Comic;
+
 class MainController extends Controller
 {
     /**
