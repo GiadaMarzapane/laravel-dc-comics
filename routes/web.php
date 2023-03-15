@@ -21,4 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// creo nuova Route:resourse così da avere a disposizione
+// tutte le rotte per le funzioni del controller
+
 Route::resource('comics', MainController::class);
