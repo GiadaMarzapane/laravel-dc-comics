@@ -39,7 +39,15 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        $newComic = new Comic;
+        $newComic->title = $data['title'];
+        $newComic->description = $data['description'];
+        $newComic->price = $data['price'];
+        $newComic->series = $data['series'];
+        $newComic->save();
+
+        return redirect()->route('comics.index');
     }
 
     /**
