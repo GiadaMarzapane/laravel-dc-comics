@@ -12,7 +12,7 @@
                         <div class="card-body pt-1">
                             <h6>{{ $element->series }}</h6>
                             <p class="card-text">€ {{ $element->price }}</p>
-                            <a href="#" class="btn btn-primary">Vedi dettagli</a>
+                            <a href="{{ route('comics.show', $element->id) }}" class="btn btn-primary">Vedi dettagli</a>
                         </div>
                     </div>
                 </div>
