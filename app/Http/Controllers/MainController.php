@@ -93,7 +93,7 @@ class MainController extends Controller
         $comic->description = $data['description'];
         $comic->price = $data['price'];
         $comic->series = $data['series'];
-        
+
         $comic->save();
 
         return redirect()->route('comics.index');
@@ -107,6 +107,9 @@ class MainController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }

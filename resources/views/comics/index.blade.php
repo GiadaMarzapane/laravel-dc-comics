@@ -2,6 +2,9 @@
 
 @section('content')
     <main>
+        <div class="p-3 text-center">
+            <a href="/">Vai alla pagina principale</a>
+        </div>
         <div class="container m-auto">
             <div class="row g-3">
                 @foreach ($comics as $element)    
@@ -13,7 +16,10 @@
                             <h6>{{ $element->series }}</h6>
                             <p class="card-text">€ {{ $element->price }}</p>
                             <a style="font-size: 0.75rem" href="{{ route('comics.show', $element->id) }}" class="btn btn-primary">Vedi dettagli</a>
-                            <a style="font-size: 0.75rem" href="{{ route('comics.edit', $element->id) }}" class="btn btn-dark">Modifica comic</a>
+                            <a style="font-size: 0.75rem" href="{{ route('comics.edit', $element->id) }}" class="btn btn-dark">Modifica dettagli</a>
+                            <a style="font-size: 0.75rem" href="{{ route('comics.destroy', $element->id) }}" class="btn btn-danger">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
