@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 // importo Model
 use App\Models\Comic;
 
+
 class MainController extends Controller
 {
     /**
@@ -14,6 +15,15 @@ class MainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // function per validazione dati inseriti nel form
+    private function dataValidation(Request $request){
+        $request->validate([
+            'title' => 'required|min:1|max:255',
+            'series' => 'required|min:1|max:255',
+            'price' => 'required|numeric'
+        ]);
+    }
+
     public function index()
     {
         $comics = Comic::all();
@@ -39,22 +49,23 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-                'title' => 'required|min:1|max:255',
-                'series' => 'required|min:1|max:255',
-                'price'=> 'required|numeric'
-            ]);
+        // richiamo function per validazione
+        $this->dataValidation($request);
 
+        // se ok validazione mi prendo tutti i dati
         $data=$request->all();
 
+        // creo nuova istanza e nuovo fumetto
         $newComic = new Comic;
         $newComic->title = $data['title'];
         $newComic->description = $data['description'];
         $newComic->price = $data['price'];
         $newComic->series = $data['series'];
 
+        // salvo i miei dati
         $newComic->save();
 
+        // redirect alla pagina pricipale con elenco comics
         return redirect()->route('comics.index');
     }
 
