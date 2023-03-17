@@ -104,6 +104,9 @@ class MainController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // richiamo function per validazione
+        $this->dataValidation($request);
+        
         $data = $request->all();
 
         $comic = Comic::findOrFail($id);

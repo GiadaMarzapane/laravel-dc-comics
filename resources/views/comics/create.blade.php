@@ -5,6 +5,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
+                    <div class="p-3 text-center">
+                    <a href="/">Ho cambiato</a>
+                </div>
                     @if ($errors->any())
                         @foreach ($errors->all() as $error)
                         <div class="alert alert-danger" role="alert">
