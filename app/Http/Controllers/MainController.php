@@ -39,12 +39,20 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+                'title' => 'required|min:1|max:255',
+                'series' => 'required|min:1|max:255',
+                'price'=> 'required|numeric|'
+            ]);
+
         $data=$request->all();
+
         $newComic = new Comic;
         $newComic->title = $data['title'];
         $newComic->description = $data['description'];
         $newComic->price = $data['price'];
         $newComic->series = $data['series'];
+
         $newComic->save();
 
         return redirect()->route('comics.index');
