@@ -4,7 +4,8 @@
     <main>
         <div class="container m-auto">
             <div class="row g-3">
-                <form action="{{ route('comics.update', $comic->id) }}"
+                <div class="col">
+                    <form action="{{ route('comics.update', $comic->id) }}"
                         method="POST">
                         @csrf
                         @method('PUT')
@@ -26,6 +27,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Modifica Comic</button>
                     </form>
+                </div>
             </div>
         </div>
     </main>

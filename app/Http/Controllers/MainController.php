@@ -42,7 +42,7 @@ class MainController extends Controller
         $request->validate([
                 'title' => 'required|min:1|max:255',
                 'series' => 'required|min:1|max:255',
-                'price'=> 'required|numeric|'
+                'price'=> 'required|numeric'
             ]);
 
         $data=$request->all();
